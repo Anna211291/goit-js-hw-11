@@ -14,7 +14,8 @@ const { searchQuery } = form.elements;
 const BASE_URL = "https://pixabay.com/api/";
 const API_KEY = "39215228-7f7f32c48d65cadc310432918"
 
-const params = new URLSearchParams({
+async function getImages() {
+    const params = new URLSearchParams({
     key: `${API_KEY}`,
     q: `${query}`,
     image_type: "photo",
@@ -23,11 +24,10 @@ const params = new URLSearchParams({
     page: `${page}`,
     per_page: 40
 });
-  async function getImages() {
   try {
     const response = await axios.get(`${BASE_URL}?${params}`);
-    //   console.log(response);
-      return response.data;
+      // console.log(response);
+    return response.data;
   } catch (error) {
     console.error(error);
   }
@@ -35,42 +35,49 @@ const params = new URLSearchParams({
 console.log(getImages());
 form.addEventListener("submit", searchSubmit);
 
-function searchSubmit(evt) {
+async function searchSubmit(evt) {
     evt.preventDefault();
-    query = searchQuery.value.trim();
+  query = searchQuery.value.trim();
 
+  // try {
+  //   const data = await getImages(query) 
+  //   galleryList.insertAdjacentHTML("afterbegin", createMarkup(data));
+  // } catch (error) {
+  //   console.error(error);
+  // }
     getImages().then(data => {
-    galleryList.insertAdjacentHTML("afterbegin", createMarkup(data));
+    galleryList.insertAdjacentHTML("afterbegin", createMarkup(data.hits));
+     
     })
     .catch(err => { console.log(err); }) 
 }
 
 function createMarkup(arr) {
     // console.log(arr);
-    const { hits: [{ webformatURL,
+  return arr.map(({ webformatURL,
 largeImageURL,
 tags,
 likes,
 views,
 comments,
 downloads
- }] } = arr;
-    return `
+  }) => `
     <div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="300" />
-  <div class="info">
-    <p class="info-item">
-      <b>${likes}</b>
-    </p>
-    <p class="info-item">
-      <b>${views}</b>
-    </p>
-    <p class="info-item">
-      <b>${comments}</b>
-    </p>
-    <p class="info-item">
-      <b>${downloads}</b>
-    </p>
-  </div>
-</div>`
-}
+//   <a href="${largeImageURL}"><img class="image" src="${webformatURL}" alt="${tags}" loading="lazy" width="300" /></a>
+//   <div class="info">
+//     <p class="info-item">Likes: 
+//       <b>${likes}</b>
+//     </p>
+//     <p class="info-item">Views: 
+//       <b>${views}</b>
+//     </p>
+//     <p class="info-item">Comments: 
+//       <b>${comments}</b>
+//     </p>
+//     <p class="info-item">Downloads:
+//       <b>${downloads}</b>
+//     </p>
+//   </div>
+// </div>`).join("")
+
+};
