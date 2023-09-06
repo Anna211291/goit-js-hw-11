@@ -1,37 +1,99 @@
 body {
-  background-color: azure;
+  background-color: #f0ffff;
+  margin: 0;
+  padding-bottom: 20px;
 }
+.load-more-style {
+  width: 250px;
+  display: flex;
+  margin: 0 auto;
+  padding: 10px 0;
+  color: #f0ffff;
+  background: linear-gradient(rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  border-radius: 6px;
+}
+
 .hidden {
   display: none;
 }
+
 .search-form {
   padding: 20px 0px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  border-radius: 30px;
-  background: linear-gradient(rgba(0, 212, 255, 1) 0%, rgba(2, 0, 36, 1) 100%);
+  background: linear-gradient(rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+input {
+  width: 250px;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  font-size: 20px;
+  background-color: #f0ffff;
+  outline: transparent;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #0b325e,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+button {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  font-size: 20px;
+  background-color: #f0ffff;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #0b325e,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 .gallery {
-  padding: 20px 0;
+  padding: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  margin: 0 auto;
 }
 .photo-card {
-  width: 350px;
+  width: 320px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(181, 250, 250);
-  border-radius: 0 0 15px 15px;
+  justify-content: flex-start;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #0b325e,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+.img-link {
+  height: 200px;
 }
 .image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 .info {
   display: flex;
+  justify-content: center;
   gap: 10px;
+  color: #e2f5f5;
+  background: linear-gradient(
+    rgba(2, 0, 36, 0.804) 0%,
+    rgba(0, 213, 255, 0.806) 100%
+  );
+  border-radius: 0 0 10px 10px;
+  padding: 0 10px;
+}
+.info-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 1.2;
+  letter-spacing: 0.05rem;
+}
+.text-span {
+  font-size: 16px;
+  text-decoration: underline;
 }
