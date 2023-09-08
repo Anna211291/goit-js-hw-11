@@ -43,10 +43,14 @@ button {
   padding: 6px;
   border-radius: 6px;
   border: none;
+  outline: none;
   font-size: 20px;
   background-color: #f0ffff;
   box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #0b325e,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+button:hover {
+  box-shadow: 10px 10px 10px #1f87ff;
 }
 .gallery {
   padding: 40px;
@@ -57,7 +61,7 @@ button {
   margin: 0 auto;
 }
 .photo-card {
-  width: 320px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -65,33 +69,38 @@ button {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   border-radius: 10px;
 }
+.photo-card:hover {
+  box-shadow: 10px 10px 10px #1f87ff;
+}
 .img-link {
-  height: 200px;
+  height: 250px;
 }
 .image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
 .info {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 14px;
   color: #e2f5f5;
   background: linear-gradient(
     rgba(2, 0, 36, 0.804) 0%,
     rgba(0, 213, 255, 0.806) 100%
   );
   border-radius: 0 0 10px 10px;
-  padding: 0 10px;
+  padding: 0 40px;
 }
 .info-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  line-height: 1.2;
+  align-items: center;
+  line-height: 1.1;
   letter-spacing: 0.05rem;
+  margin: 10px 0;
 }
 .text-span {
   font-size: 16px;
